@@ -1,0 +1,2 @@
+# Skill: fase4-publicacao
+Fase 4 — Publicação automática do conteúdo no Notion via API.
