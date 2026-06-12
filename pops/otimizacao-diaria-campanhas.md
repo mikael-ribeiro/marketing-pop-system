@@ -179,3 +179,7 @@ A rotina foi bem executada quando: o filtro de 10 dias úteis e o botão Safra f
 ---
 
 *POP gerado pelo Marketing OS — v1.0*
+
+---
+
+**Conexões:** [[automacoes/automacoes|automacoes]]

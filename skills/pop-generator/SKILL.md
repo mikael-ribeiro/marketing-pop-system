@@ -409,3 +409,7 @@ OPENAI_API_KEY=  # opcional, só para transcrição de áudio
 - `scripts/clickup_reader.py` — lê estrutura atual do ClickUp Doc
 - `scripts/clickup_publisher.py` — publica POPs e cria estrutura
 - `scripts/transcrever.py` — transcreve áudio via Whisper (requer OpenAI)
+
+---
+
+**Conexões:** [[automacoes/automacoes|automacoes]]

@@ -121,3 +121,7 @@ A rotina foi bem executada quando: os volumes de todas as etapas do funil foram 
 ---
 
 *POP gerado pelo Marketing OS — v1.0*
+
+---
+
+**Conexões:** [[automacoes/automacoes|automacoes]]

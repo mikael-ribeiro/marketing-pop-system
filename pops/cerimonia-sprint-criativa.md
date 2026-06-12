@@ -175,3 +175,7 @@ A cerimônia foi bem-executada quando:
 ---
 
 *POP gerado pelo Marketing OS — v1.0*
+
+---
+
+**Conexões:** [[automacoes/automacoes|automacoes]]

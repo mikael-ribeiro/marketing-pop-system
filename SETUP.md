@@ -42,3 +42,7 @@ marketing-pop-system/
     ├── fase35-arquitetura-notion/
     └── fase4-publicacao/
 ```
+
+---
+
+**Conexões:** [[automacoes/automacoes|automacoes]]
