@@ -1,6 +1,6 @@
 ---
 name: pop-generator
-description: Sistema completo de criação de POPs (Procedimentos Operacionais Padrão) para times de marketing. Orquestra automaticamente as 4 fases: Captura → Refinamento → Produção → Arquitetura Notion → Publicação. Use quando o usuário quiser documentar qualquer processo do time de marketing. Ativar com frases como "criar POP", "documentar processo", "novo POP", "quero documentar como fazemos X", "vamos documentar", "preciso registrar esse processo".
+description: Sistema completo de criação de POPs (Procedimentos Operacionais Padrão) para times de marketing. Orquestra automaticamente as 4 fases: Captura → Refinamento → Produção → Arquitetura ClickUp → Publicação. Use quando o usuário quiser documentar qualquer processo do time de marketing. Ativar com frases como "criar POP", "documentar processo", "novo POP", "quero documentar como fazemos X", "vamos documentar", "preciso registrar esse processo".
 ---
 
 # POP Generator — Sistema de Documentação de Processos
@@ -44,7 +44,7 @@ INPUT BRUTO (qualquer formato)
        ↓
 [FASE 3.5] Arquitetura ────→ Aprovação ✅
        ↓
-[FASE 4] Publicação Notion → Link final 🔗
+[FASE 4] Publicação ClickUp → Link final 🔗
 ```
 
 ---
@@ -286,22 +286,22 @@ Formato escolhido: [tipo] — [justificativa]
 
 ---
 
-## FASE 3.5 — Arquitetura do Notion
+## FASE 3.5 — Arquitetura do ClickUp
 
 ### Objetivo
 Garantir que o POP seja publicado no lugar certo, dentro de uma estrutura organizada.
 
 ### Comportamento
 
-**Se já existe estrutura no Notion:**
+**Se já existe estrutura no ClickUp Doc:**
 - Apresentar hierarquia atual
 - Sugerir localização mais adequada com justificativa
 - Aguardar aprovação
 
-**Se Notion vazio:**
+**Se doc vazio:**
 - Propor estrutura completa:
 ```
-📁 Marketing OS (raiz)
+📁 Marketing OS (doc raiz)
   ├── 📌 Índice Mestre
   ├── 🎯 Estratégia & Planejamento
   ├── 🎨 Conteúdo & Criação
@@ -319,7 +319,7 @@ Garantir que o POP seja publicado no lugar certo, dentro de uma estrutura organi
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🗂️ ARQUITETURA NOTION — FASE 3.5
+🗂️ ARQUITETURA CLICKUP — FASE 3.5
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [Estrutura atual ou sugerida]
@@ -338,16 +338,16 @@ Garantir que o POP seja publicado no lugar certo, dentro de uma estrutura organi
 
 ---
 
-## FASE 4 — Publicação no Notion
+## FASE 4 — Publicação no ClickUp
 
 ### Objetivo
-Publicar o POP aprovado no Notion na localização correta.
+Publicar o POP aprovado no ClickUp Doc na localização correta.
 
 ### Comportamento
 
 Para publicar, usar o comando:
 ```bash
-python scripts/notion_publisher.py --publicar-pop <arquivo.md> --parent-id <id> --titulo "<título>"
+python scripts/clickup_publisher.py --publicar-pop <arquivo.md> --parent-id <id> --titulo "<título>"
 ```
 
 O ID da página pai está disponível em `estrutura_ids.json`.
@@ -362,7 +362,7 @@ Após publicação bem-sucedida, apresentar:
 ✅ POP criado com sucesso!
 
 📄 Nome: [nome]
-📂 Localização: [caminho no Notion]
+📂 Localização: [caminho no ClickUp]
 🔗 Link direto: [URL]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -380,7 +380,7 @@ Após publicação bem-sucedida, apresentar:
 | `/status` | Mostra em qual fase está |
 | `/cancelar` | Cancela o workflow atual |
 | `/retomar` | Retoma de onde parou |
-| `/ver-estrutura-notion` | Exibe estrutura atual sem criar nada |
+| `/ver-estrutura-clickup` | Exibe estrutura atual sem criar nada |
 
 ---
 
@@ -398,14 +398,14 @@ Após publicação bem-sucedida, apresentar:
 ## Configuração necessária (.env)
 
 ```
-ANTHROPIC_API_KEY=sua_chave
-NOTION_TOKEN=secret_...
-NOTION_ROOT_PAGE_ID=id_da_pagina_raiz
+CLICKUP_API_KEY=sua_chave
+CLICKUP_WORKSPACE_ID=id_do_workspace
+CLICKUP_DOC_ID=id_do_doc
 OPENAI_API_KEY=  # opcional, só para transcrição de áudio
 ```
 
 ## Scripts disponíveis
 
-- `scripts/notion_reader.py` — lê estrutura atual do Notion
-- `scripts/notion_publisher.py` — publica POPs e cria estrutura
+- `scripts/clickup_reader.py` — lê estrutura atual do ClickUp Doc
+- `scripts/clickup_publisher.py` — publica POPs e cria estrutura
 - `scripts/transcrever.py` — transcreve áudio via Whisper (requer OpenAI)
